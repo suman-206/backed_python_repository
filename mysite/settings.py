@@ -91,7 +91,7 @@ DATABASES = {
         'NAME': DATABASE_NAME,  # Replace with your database name
         'USER': DATABASE_USER,  # Replace with your username
         'PASSWORD': DATABASE_PASSWORD,  # Replace with your password
-        'HOST': 'localhost',  # Change if using a remote server
+        'HOST': 'host.docker.internal',  # Change if using a remote server
         'PORT': '5432',  # Default PostgreSQL port
     }
 }
