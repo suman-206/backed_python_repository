@@ -27,9 +27,9 @@ DATABASE_USER = os.getenv("DATABASE_USER")
 DATABASE_PASSWORD = os.getenv("DATABASE_PASSWORD")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'web']
 
 
 # Application definition
@@ -139,9 +139,18 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+#SECURE_SSL_REDIRECT = True
+#SESSION_COOKIE_SECURE = True
+#CSRF_COOKIE_SECURE = True
+#SECURE_HSTS_SECONDS = 31536000  # 1 year
+#SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+#SECURE_HSTS_PRELOAD = True
+#SECURE_CONTENT_TYPE_NOSNIFF = True
+#SECURE_BROWSER_XSS_FILTER = True
+#X_FRAME_OPTIONS = 'DENY'
   # Use the same logger name as in LOGGING settings
 
-LOG_DIR = os.path.join(os.path.expanduser("~"), "Desktop", "django_logs")  # Create a logs folder on the Desktop
+LOG_DIR = os.path.join(os.path.expanduser("~"), "home", "logs")  # Create a logs folder on the Desktop
 if not os.path.exists(LOG_DIR):  # Ensure the directory exists
     os.makedirs(LOG_DIR)
 
@@ -162,7 +171,7 @@ LOGGING = {
         "file": {
             "level": "ERROR",
             "class": "logging.FileHandler",
-            "filename": os.path.join(LOG_DIR, "django_error.log"),  # Save logs on Desktop
+            "filename": os.path.join(LOG_DIR, "polls_app.log"),  # Save logs on Desktop
             "formatter": "verbose",
         },
         "console": {
